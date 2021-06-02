@@ -11,10 +11,11 @@ export class AppComponent {
   profileForm = new FormGroup({
     name: new FormControl(''),
     tel: new FormControl(''),
+    message: new FormControl(''),
   });
   
   onSubmit() {
-    const url = `https://api.whatsapp.com/send/?phone=55${this.profileForm.value.tel}&text='teste'&app_absent=0`;
+    const url = `https://api.whatsapp.com/send/?phone=55${this.profileForm.value.tel}&text=${this.profileForm.value.message}&app_absent=0`;
     window.location.href = url;
   }
 }
