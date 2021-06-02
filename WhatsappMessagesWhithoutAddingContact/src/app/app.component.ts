@@ -14,7 +14,7 @@ export class AppComponent {
   });
   
   onSubmit() {
-    const url = `https://api.whatsapp.com/send/?phone=+55${this.profileForm.value}&text='teste'&app_absent=0`;
+    const url = `https://api.whatsapp.com/send/?phone=55${this.profileForm.value.tel}&text='teste'&app_absent=0`;
     window.location.href = url;
   }
 }
