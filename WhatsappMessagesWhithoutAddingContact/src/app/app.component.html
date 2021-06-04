@@ -6,3 +6,16 @@
   <textarea placeholder="Mensagem" id="message" name="message" formControlName="message"></textarea><br>
   <button class="button" type="submit">Enviar</button>
 </form>
+<div *ngIf="userHistoryData && userHistoryData.length > 0">
+  <br>
+  <a href="#" (click)="clearHistory()">Limpar Histórico</a>
+  <br>
+  <ul>
+    <li *ngFor="let user of userHistoryData">
+      <h2>{{user.name}}</h2>
+      <p>{{user.whatsappNumber}} - {{user.date}}</p>
+      <a href="https://api.whatsapp.com/send/?phone={{user.whatsappNumber}}&text=''&app_absent=0">Enviar</a>
+      <a href="#" (click)="deleteFromHistory(user)"> Excluir</a>
+    </li>
+  </ul>
+</div>
