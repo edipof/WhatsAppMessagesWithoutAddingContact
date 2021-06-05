@@ -5,29 +5,35 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      as
+      Direct Whatsapp Message
     </mat-toolbar>
-    <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
-      <p>
-        <mat-form-field appearance="legacy" [floatLabel]="profileForm.value.name">
-          <mat-label>Nome:</mat-label>
-          <input matInput placeholder="Nome" formControlName="name">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="legacy" [floatLabel]="profileForm.value.tel">
-          <mat-label>Telefone:</mat-label>
-          <input matInput placeholder="Telefone" formControlName="tel">
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="legacy" [floatLabel]="profileForm.value.message">
-          <mat-label>Mensagem</mat-label>
-          <textarea matInput placeholder="Mensagem" formControlName="message"></textarea>
-        </mat-form-field>
-      </p>
-      <button mat-button type="submit">Enviar</button>
-    </form>
+    <br>
+    <div class="center">
+      <mat-card style="width: 250px">
+        <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+          <p>
+            <mat-form-field class="full-width" appearance="legacy" [floatLabel]="profileForm.value.name">
+              <mat-label>Nome:</mat-label>
+              <input matInput placeholder="Nome" formControlName="name">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="legacy" [floatLabel]="profileForm.value.tel">
+              <mat-label>Telefone:</mat-label>
+              <input matInput placeholder="Telefone" type="number" formControlName="tel" required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="legacy" [floatLabel]="profileForm.value.message">
+              <mat-label>Mensagem</mat-label>
+              <textarea matInput placeholder="Mensagem" formControlName="message"></textarea>
+            </mat-form-field>
+          </p>
+          <button mat-stroked-button type="submit">Enviar</button>
+        </form>
+      </mat-card>
+    </div>
+    <br>
     <mat-divider></mat-divider>
     <div *ngIf="userHistoryData && userHistoryData.length > 0">
       <br>

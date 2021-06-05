@@ -8,7 +8,6 @@ import { UserHistory } from './interfaces/UserHistory';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'WhatsappMessagesWhithoutAddingContact';
   userHistoryData: UserHistory[];
   profileForm = new FormGroup({
     name: new FormControl(''),
@@ -21,6 +20,9 @@ export class AppComponent {
   }
 
   onSubmit() {
+    if(this.profileForm.invalid) {
+      return;
+    }
     const user: UserHistory = { name: this.profileForm.value.name, whatsappNumber: `55${this.profileForm.value.tel}`, date: new Date() };
     const message: string = this.profileForm.value.message;
     const url = `https://api.whatsapp.com/send/?phone=${user.whatsappNumber}&text=${message}&app_absent=0`;
